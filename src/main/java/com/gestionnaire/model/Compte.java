@@ -27,15 +27,15 @@ public class Compte {
     private String motDePasseChiffre;
 
     @Column(name = "note_privee")
-    private String notePrivée;
+    private String notePrivee;
 
     public Compte() {}
 
-    public Compte(String siteWeb, String identifiant, String motDePasseChiffre, String notePrivée) {
+    public Compte(String siteWeb, String identifiant, String motDePasseChiffre, String notePrivee) {
         this.siteWeb = siteWeb;
         this.identifiant = identifiant;
         this.motDePasseChiffre = motDePasseChiffre;
-        this.notePrivée = notePrivée;
+        this.notePrivee = notePrivee;
     }
 
     public Long getId() { return id; }
@@ -50,6 +50,6 @@ public class Compte {
     public String getMotDePasseChiffre() { return motDePasseChiffre; }
     public void setMotDePasseChiffre(String motDePasseChiffre) { this.motDePasseChiffre = motDePasseChiffre; }
 
-    public String getNotePrivée() { return notePrivée; }
-    public void setNotePrivée(String notePrivée) { this.notePrivée = notePrivée; }
+    public String getNotePrivee() { return notePrivee; }
+    public void setNotePrivee(String notePrivee) { this.notePrivee = notePrivee; }
 }
