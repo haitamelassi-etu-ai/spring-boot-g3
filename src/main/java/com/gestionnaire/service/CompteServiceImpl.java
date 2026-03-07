@@ -3,6 +3,7 @@ package com.gestionnaire.service;
 import com.gestionnaire.model.Compte;
 import com.gestionnaire.repository.CompteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +13,8 @@ public class CompteServiceImpl implements CompteService {
 
     @Autowired
     private CompteRepository compteRepository;
+
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
     public List<Compte> findAll() {
@@ -25,7 +28,9 @@ public class CompteServiceImpl implements CompteService {
 
     @Override
     public Compte save(Compte compte) {
-        // Logique métier peut être ajoutée ici (ex: chiffrement du mot de passe)
+        // Chiffrement du mot de passe
+        String motDePasseChiffre = passwordEncoder.encode(compte.getMotDePasseChiffre());
+        compte.setMotDePasseChiffre(motDePasseChiffre);
         return compteRepository.save(compte);
     }
 
